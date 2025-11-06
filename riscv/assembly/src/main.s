@@ -13,9 +13,16 @@ main:
 
 
 # *** Do some work ***
-    addi a2, zero, 0x123 # a2 := 0x123
-    # example of printing value of register a2 
-    DEBUG_PRINT a2
+   # Set inputs: a0 = numerator (N), a1 = denominator (D)
+    li   a0, 32          # N = 32
+    li   a1, 3           # D = 3
+
+    # Call your division routine
+    call div             # on return: a0 = Q, a1 = R
+
+    # Print results (sim environment reads CSR 0x800)
+    DEBUG_PRINT a0       # expect Q = 10
+    DEBUG_PRINT a1       # expect R = 2
 
 # *** End useful work ***
 

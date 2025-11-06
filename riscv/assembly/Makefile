@@ -24,7 +24,7 @@ CC = $(RISCV_PREFIX)gcc
 OBJCOPY = $(RISCV_PREFIX)objcopy
 OBJDUMP = $(RISCV_PREFIX)objdump
 
-TARGET_ARCH = -march=rv32i
+TARGET_ARCH = -march=rv32i_zicsr
 CC_FLAGS = -O0 $(TARGET_ARCH)
 
 CC_LINK_FLAGS = $(CC_FLAGS) -static -fvisibility=hidden -nostdlib -nostartfiles

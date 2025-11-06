@@ -14,6 +14,34 @@ div:
     # ...
 
     # do your work
+    beqz a1, 1f
+    li   t0, 0
+    li   t1, 0
+    mv   t2, a0
+    li   t3, 1
+    slli t3, t3, 31
+    mv   t4, a1
+
+0:  srl  t5, t2, 31
+    slli t1, t1, 1
+    or   t1, t1, t5
+    slli t2, t2, 1
+
+    bltu t1, t4, 2f
+    sub  t1, t1, t4
+    or   t0, t0, t3
+
+2:  srli t3, t3, 1
+    bnez t3, 0b
+
+    mv   a0, t0
+    mv   a1, t1
+    j    3f
+
+1:  li    a0, 0
+    li    a1, 0
+
+3:
     # example of printing inputs a0 and a1
     DEBUG_PRINT a0
     DEBUG_PRINT a1
