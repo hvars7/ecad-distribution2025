@@ -23,6 +23,42 @@ main:
     # Print results (sim environment reads CSR 0x800)
     DEBUG_PRINT a0       # expect Q = 10
     DEBUG_PRINT a1       # expect R = 2
+    
+    # test2 7 / 32 = 0 r 7
+    li a0, 7
+    li a1, 32
+    call div
+    DEBUG_PRINT a0    # 0
+    DEBUG_PRINT a1    # 7
+
+    # test3 15 / 15 = 1 r 0
+    li a0, 15
+    li a1, 15
+    call div
+    DEBUG_PRINT a0    # 1
+    DEBUG_PRINT a1    # 0
+
+    # test4 0 / 9 = 0 r 0
+    li a0, 0
+    li a1, 9
+    call div
+    DEBUG_PRINT a0    # 0
+    DEBUG_PRINT a1    # 0
+
+    # test5 Divide-by-zero: 100 / 0 -> 0 (rem 0)
+    li a0, 100
+    li a1, 0
+    call div
+    DEBUG_PRINT a0    # 0
+    DEBUG_PRINT a1    # 0
+
+    # test6 Large unsigned: 0xFFFFFFFF / 2 = 2147483647 r 1
+    li a0, -1          # 0xFFFFFFFF
+    li a1, 2
+    call div
+    DEBUG_PRINT a0     # 2147483647
+    DEBUG_PRINT a1     # 1
+    
 
 # *** End useful work ***
 

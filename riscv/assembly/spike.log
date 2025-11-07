@@ -1,0 +1,3051 @@
+mkdir -p build
+spike --log-commits --isa=rv32i -l -m0x0:0x10000 build/program.elf
+core   0: >>>>  
+core   0: 0x00000000 (0x00010117) auipc   sp, 0x10
+core   0: 0x00000000: md=MACH insn=0x00010117: x 2:= 0x00010000
+core   0: 0x00000004 (0xffc10113) addi    sp, sp, -4
+core   0: 0x00000004: md=MACH insn=0xffc10113: x 2:= 0x0000fffc
+core   0: 0x00000008 (0x00000297) auipc   t0, 0x0
+core   0: 0x00000008: md=MACH insn=0x00000297: x 5:= 0x00000008
+core   0: 0x0000000c (0x03028293) addi    t0, t0, 48
+core   0: 0x0000000c: md=MACH insn=0x03028293: x 5:= 0x00000038
+core   0: 0x00000010 (0x30529073) csrw    mtvec, t0
+core   0: 0x00000010: md=MACH insn=0x30529073: c773_mtvec:= 0x00000038
+core   0: 0x00000014 (0x0dc000ef) jal     pc + 0xdc
+core   0: 0x00000014: md=MACH insn=0x0dc000ef: x 1:= 0x00000018
+core   0: >>>>  $x
+core   0: 0x000000f0 (0xfe010113) addi    sp, sp, -32
+core   0: 0x000000f0: md=MACH insn=0xfe010113: x 2:= 0x0000ffdc
+core   0: 0x000000f4 (0x00112e23) sw      ra, 28(sp)
+core   0: 0x000000f4: md=MACH insn=0x00112e23: mem[0x0000fff8]:= 0x00000018
+core   0: 0x000000f8 (0x02000513) li      a0, 32
+core   0: 0x000000f8: md=MACH insn=0x02000513: x10:= 0x00000020
+core   0: 0x000000fc (0x00300593) li      a1, 3
+core   0: 0x000000fc: md=MACH insn=0x00300593: x11:= 0x00000003
+core   0: 0x00000100 (0xf79ff0ef) jal     pc - 0x88
+core   0: 0x00000100: md=MACH insn=0xf79ff0ef: x 1:= 0x00000104
+core   0: >>>>  div
+core   0: 0x00000078 (0xfe010113) addi    sp, sp, -32
+core   0: 0x00000078: md=MACH insn=0xfe010113: x 2:= 0x0000ffbc
+core   0: 0x0000007c (0x00112e23) sw      ra, 28(sp)
+core   0: 0x0000007c: md=MACH insn=0x00112e23: mem[0x0000ffd8]:= 0x00000104
+core   0: 0x00000080 (0x00812c23) sw      s0, 24(sp)
+core   0: 0x00000080: md=MACH insn=0x00812c23: mem[0x0000ffd4]:= 0x00000000
+core   0: 0x00000084 (0x04058663) beqz    a1, pc + 76
+core   0: 0x00000084: md=MACH insn=0x04058663:
+core   0: 0x00000088 (0x00000293) li      t0, 0
+core   0: 0x00000088: md=MACH insn=0x00000293: x 5:= 0x00000000
+core   0: 0x0000008c (0x00000313) li      t1, 0
+core   0: 0x0000008c: md=MACH insn=0x00000313: x 6:= 0x00000000
+core   0: 0x00000090 (0x00050393) mv      t2, a0
+core   0: 0x00000090: md=MACH insn=0x00050393: x 7:= 0x00000020
+core   0: 0x00000094 (0x00100e13) li      t3, 1
+core   0: 0x00000094: md=MACH insn=0x00100e13: x28:= 0x00000001
+core   0: 0x00000098 (0x01fe1e13) slli    t3, t3, 31
+core   0: 0x00000098: md=MACH insn=0x01fe1e13: x28:= 0x80000000
+core   0: 0x0000009c (0x00058e93) mv      t4, a1
+core   0: 0x0000009c: md=MACH insn=0x00058e93: x29:= 0x00000003
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000040
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x40000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000080
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x20000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000100
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x10000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000200
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x08000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000400
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x04000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000800
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x02000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00001000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x01000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00002000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00800000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00004000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00400000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00008000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00200000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00010000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00100000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00020000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00080000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00040000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00040000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00080000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00020000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00100000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00010000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00200000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00008000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00400000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00004000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00800000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00002000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x01000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00001000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x02000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000800
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x04000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000400
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x08000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000200
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x10000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000100
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x20000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000080
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x40000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000040
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x80000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000020
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000001
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000010
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000002
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000008
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000004
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000004
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x00000008
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000004
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000002
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000002
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000004
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000004
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x0000000a
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000001
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000002
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: 0x000000c4 (0x00028513) mv      a0, t0
+core   0: 0x000000c4: md=MACH insn=0x00028513: x10:= 0x0000000a
+core   0: 0x000000c8 (0x00030593) mv      a1, t1
+core   0: 0x000000c8: md=MACH insn=0x00030593: x11:= 0x00000002
+core   0: 0x000000cc (0x00c0006f) j       pc + 0xc
+core   0: 0x000000cc: md=MACH insn=0x00c0006f:
+core   0: >>>>  done
+core   0: 0x000000d8 (0x80051073) csrw    bareMetalOutputHex, a0
+Debug output: 0xa
+core   0: 0x000000d8: md=MACH insn=0x80051073:
+core   0: 0x000000dc (0x80059073) csrw    bareMetalOutputHex, a1
+Debug output: 0x2
+core   0: 0x000000dc: md=MACH insn=0x80059073:
+core   0: 0x000000e0 (0x01c12083) lw      ra, 28(sp)
+core   0: 0x000000e0: md=MACH insn=0x01c12083: x 1:= 0x00000104 == mem[0x0000ffd8]
+core   0: 0x000000e4 (0x01812403) lw      s0, 24(sp)
+core   0: 0x000000e4: md=MACH insn=0x01812403: x 8:= 0x00000000 == mem[0x0000ffd4]
+core   0: 0x000000e8 (0x02010113) addi    sp, sp, 32
+core   0: 0x000000e8: md=MACH insn=0x02010113: x 2:= 0x0000ffdc
+core   0: 0x000000ec (0x00008067) ret
+core   0: 0x000000ec: md=MACH insn=0x00008067:
+core   0: 0x00000104 (0x80051073) csrw    bareMetalOutputHex, a0
+Debug output: 0xa
+core   0: 0x00000104: md=MACH insn=0x80051073:
+core   0: 0x00000108 (0x80059073) csrw    bareMetalOutputHex, a1
+Debug output: 0x2
+core   0: 0x00000108: md=MACH insn=0x80059073:
+core   0: 0x0000010c (0x00700513) li      a0, 7
+core   0: 0x0000010c: md=MACH insn=0x00700513: x10:= 0x00000007
+core   0: 0x00000110 (0x02000593) li      a1, 32
+core   0: 0x00000110: md=MACH insn=0x02000593: x11:= 0x00000020
+core   0: 0x00000114 (0xf65ff0ef) jal     pc - 0x9c
+core   0: 0x00000114: md=MACH insn=0xf65ff0ef: x 1:= 0x00000118
+core   0: >>>>  div
+core   0: 0x00000078 (0xfe010113) addi    sp, sp, -32
+core   0: 0x00000078: md=MACH insn=0xfe010113: x 2:= 0x0000ffbc
+core   0: 0x0000007c (0x00112e23) sw      ra, 28(sp)
+core   0: 0x0000007c: md=MACH insn=0x00112e23: mem[0x0000ffd8]:= 0x00000118
+core   0: 0x00000080 (0x00812c23) sw      s0, 24(sp)
+core   0: 0x00000080: md=MACH insn=0x00812c23: mem[0x0000ffd4]:= 0x00000000
+core   0: 0x00000084 (0x04058663) beqz    a1, pc + 76
+core   0: 0x00000084: md=MACH insn=0x04058663:
+core   0: 0x00000088 (0x00000293) li      t0, 0
+core   0: 0x00000088: md=MACH insn=0x00000293: x 5:= 0x00000000
+core   0: 0x0000008c (0x00000313) li      t1, 0
+core   0: 0x0000008c: md=MACH insn=0x00000313: x 6:= 0x00000000
+core   0: 0x00000090 (0x00050393) mv      t2, a0
+core   0: 0x00000090: md=MACH insn=0x00050393: x 7:= 0x00000007
+core   0: 0x00000094 (0x00100e13) li      t3, 1
+core   0: 0x00000094: md=MACH insn=0x00100e13: x28:= 0x00000001
+core   0: 0x00000098 (0x01fe1e13) slli    t3, t3, 31
+core   0: 0x00000098: md=MACH insn=0x01fe1e13: x28:= 0x80000000
+core   0: 0x0000009c (0x00058e93) mv      t4, a1
+core   0: 0x0000009c: md=MACH insn=0x00058e93: x29:= 0x00000020
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x0000000e
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x40000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x0000001c
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x20000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000038
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x10000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000070
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x08000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x000000e0
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x04000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x000001c0
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x02000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000380
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x01000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000700
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00800000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000e00
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00400000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00001c00
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00200000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00003800
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00100000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00007000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00080000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x0000e000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00040000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x0001c000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00020000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00038000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00010000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00070000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00008000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x000e0000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00004000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x001c0000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00002000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00380000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00001000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00700000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000800
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00e00000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000400
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x01c00000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000200
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x03800000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000100
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x07000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000080
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x0e000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000040
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x1c000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000020
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x38000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000010
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x70000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000008
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xe0000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000004
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000001
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xc0000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000002
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x80000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000001
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000006
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000007
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: 0x000000c4 (0x00028513) mv      a0, t0
+core   0: 0x000000c4: md=MACH insn=0x00028513: x10:= 0x00000000
+core   0: 0x000000c8 (0x00030593) mv      a1, t1
+core   0: 0x000000c8: md=MACH insn=0x00030593: x11:= 0x00000007
+core   0: 0x000000cc (0x00c0006f) j       pc + 0xc
+core   0: 0x000000cc: md=MACH insn=0x00c0006f:
+core   0: >>>>  done
+core   0: 0x000000d8 (0x80051073) csrw    bareMetalOutputHex, a0
+Debug output: 0x0
+core   0: 0x000000d8: md=MACH insn=0x80051073:
+core   0: 0x000000dc (0x80059073) csrw    bareMetalOutputHex, a1
+Debug output: 0x7
+core   0: 0x000000dc: md=MACH insn=0x80059073:
+core   0: 0x000000e0 (0x01c12083) lw      ra, 28(sp)
+core   0: 0x000000e0: md=MACH insn=0x01c12083: x 1:= 0x00000118 == mem[0x0000ffd8]
+core   0: 0x000000e4 (0x01812403) lw      s0, 24(sp)
+core   0: 0x000000e4: md=MACH insn=0x01812403: x 8:= 0x00000000 == mem[0x0000ffd4]
+core   0: 0x000000e8 (0x02010113) addi    sp, sp, 32
+core   0: 0x000000e8: md=MACH insn=0x02010113: x 2:= 0x0000ffdc
+core   0: 0x000000ec (0x00008067) ret
+core   0: 0x000000ec: md=MACH insn=0x00008067:
+core   0: 0x00000118 (0x80051073) csrw    bareMetalOutputHex, a0
+Debug output: 0x0
+core   0: 0x00000118: md=MACH insn=0x80051073:
+core   0: 0x0000011c (0x80059073) csrw    bareMetalOutputHex, a1
+Debug output: 0x7
+core   0: 0x0000011c: md=MACH insn=0x80059073:
+core   0: 0x00000120 (0x00f00513) li      a0, 15
+core   0: 0x00000120: md=MACH insn=0x00f00513: x10:= 0x0000000f
+core   0: 0x00000124 (0x00f00593) li      a1, 15
+core   0: 0x00000124: md=MACH insn=0x00f00593: x11:= 0x0000000f
+core   0: 0x00000128 (0xf51ff0ef) jal     pc - 0xb0
+core   0: 0x00000128: md=MACH insn=0xf51ff0ef: x 1:= 0x0000012c
+core   0: >>>>  div
+core   0: 0x00000078 (0xfe010113) addi    sp, sp, -32
+core   0: 0x00000078: md=MACH insn=0xfe010113: x 2:= 0x0000ffbc
+core   0: 0x0000007c (0x00112e23) sw      ra, 28(sp)
+core   0: 0x0000007c: md=MACH insn=0x00112e23: mem[0x0000ffd8]:= 0x0000012c
+core   0: 0x00000080 (0x00812c23) sw      s0, 24(sp)
+core   0: 0x00000080: md=MACH insn=0x00812c23: mem[0x0000ffd4]:= 0x00000000
+core   0: 0x00000084 (0x04058663) beqz    a1, pc + 76
+core   0: 0x00000084: md=MACH insn=0x04058663:
+core   0: 0x00000088 (0x00000293) li      t0, 0
+core   0: 0x00000088: md=MACH insn=0x00000293: x 5:= 0x00000000
+core   0: 0x0000008c (0x00000313) li      t1, 0
+core   0: 0x0000008c: md=MACH insn=0x00000313: x 6:= 0x00000000
+core   0: 0x00000090 (0x00050393) mv      t2, a0
+core   0: 0x00000090: md=MACH insn=0x00050393: x 7:= 0x0000000f
+core   0: 0x00000094 (0x00100e13) li      t3, 1
+core   0: 0x00000094: md=MACH insn=0x00100e13: x28:= 0x00000001
+core   0: 0x00000098 (0x01fe1e13) slli    t3, t3, 31
+core   0: 0x00000098: md=MACH insn=0x01fe1e13: x28:= 0x80000000
+core   0: 0x0000009c (0x00058e93) mv      t4, a1
+core   0: 0x0000009c: md=MACH insn=0x00058e93: x29:= 0x0000000f
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x0000001e
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x40000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x0000003c
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x20000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000078
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x10000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x000000f0
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x08000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x000001e0
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x04000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x000003c0
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x02000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000780
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x01000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000f00
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00800000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00001e00
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00400000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00003c00
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00200000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00007800
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00100000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x0000f000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00080000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x0001e000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00040000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x0003c000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00020000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00078000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00010000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x000f0000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00008000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x001e0000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00004000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x003c0000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00002000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00780000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00001000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00f00000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000800
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x01e00000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000400
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x03c00000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000200
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x07800000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000100
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x0f000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000080
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x1e000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000040
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x3c000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000020
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x78000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000010
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xf0000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000008
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000001
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xe0000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000004
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xc0000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000002
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000006
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000007
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x80000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000001
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x0000000e
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x0000000f
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000000
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x00000001
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: 0x000000c4 (0x00028513) mv      a0, t0
+core   0: 0x000000c4: md=MACH insn=0x00028513: x10:= 0x00000001
+core   0: 0x000000c8 (0x00030593) mv      a1, t1
+core   0: 0x000000c8: md=MACH insn=0x00030593: x11:= 0x00000000
+core   0: 0x000000cc (0x00c0006f) j       pc + 0xc
+core   0: 0x000000cc: md=MACH insn=0x00c0006f:
+core   0: >>>>  done
+core   0: 0x000000d8 (0x80051073) csrw    bareMetalOutputHex, a0
+Debug output: 0x1
+core   0: 0x000000d8: md=MACH insn=0x80051073:
+core   0: 0x000000dc (0x80059073) csrw    bareMetalOutputHex, a1
+Debug output: 0x0
+core   0: 0x000000dc: md=MACH insn=0x80059073:
+core   0: 0x000000e0 (0x01c12083) lw      ra, 28(sp)
+core   0: 0x000000e0: md=MACH insn=0x01c12083: x 1:= 0x0000012c == mem[0x0000ffd8]
+core   0: 0x000000e4 (0x01812403) lw      s0, 24(sp)
+core   0: 0x000000e4: md=MACH insn=0x01812403: x 8:= 0x00000000 == mem[0x0000ffd4]
+core   0: 0x000000e8 (0x02010113) addi    sp, sp, 32
+core   0: 0x000000e8: md=MACH insn=0x02010113: x 2:= 0x0000ffdc
+core   0: 0x000000ec (0x00008067) ret
+core   0: 0x000000ec: md=MACH insn=0x00008067:
+core   0: 0x0000012c (0x80051073) csrw    bareMetalOutputHex, a0
+Debug output: 0x1
+core   0: 0x0000012c: md=MACH insn=0x80051073:
+core   0: 0x00000130 (0x80059073) csrw    bareMetalOutputHex, a1
+Debug output: 0x0
+core   0: 0x00000130: md=MACH insn=0x80059073:
+core   0: 0x00000134 (0x00000513) li      a0, 0
+core   0: 0x00000134: md=MACH insn=0x00000513: x10:= 0x00000000
+core   0: 0x00000138 (0x00900593) li      a1, 9
+core   0: 0x00000138: md=MACH insn=0x00900593: x11:= 0x00000009
+core   0: 0x0000013c (0xf3dff0ef) jal     pc - 0xc4
+core   0: 0x0000013c: md=MACH insn=0xf3dff0ef: x 1:= 0x00000140
+core   0: >>>>  div
+core   0: 0x00000078 (0xfe010113) addi    sp, sp, -32
+core   0: 0x00000078: md=MACH insn=0xfe010113: x 2:= 0x0000ffbc
+core   0: 0x0000007c (0x00112e23) sw      ra, 28(sp)
+core   0: 0x0000007c: md=MACH insn=0x00112e23: mem[0x0000ffd8]:= 0x00000140
+core   0: 0x00000080 (0x00812c23) sw      s0, 24(sp)
+core   0: 0x00000080: md=MACH insn=0x00812c23: mem[0x0000ffd4]:= 0x00000000
+core   0: 0x00000084 (0x04058663) beqz    a1, pc + 76
+core   0: 0x00000084: md=MACH insn=0x04058663:
+core   0: 0x00000088 (0x00000293) li      t0, 0
+core   0: 0x00000088: md=MACH insn=0x00000293: x 5:= 0x00000000
+core   0: 0x0000008c (0x00000313) li      t1, 0
+core   0: 0x0000008c: md=MACH insn=0x00000313: x 6:= 0x00000000
+core   0: 0x00000090 (0x00050393) mv      t2, a0
+core   0: 0x00000090: md=MACH insn=0x00050393: x 7:= 0x00000000
+core   0: 0x00000094 (0x00100e13) li      t3, 1
+core   0: 0x00000094: md=MACH insn=0x00100e13: x28:= 0x00000001
+core   0: 0x00000098 (0x01fe1e13) slli    t3, t3, 31
+core   0: 0x00000098: md=MACH insn=0x01fe1e13: x28:= 0x80000000
+core   0: 0x0000009c (0x00058e93) mv      t4, a1
+core   0: 0x0000009c: md=MACH insn=0x00058e93: x29:= 0x00000009
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x40000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x20000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x10000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x08000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x04000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x02000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x01000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00800000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00400000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00200000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00100000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00080000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00040000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00020000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00010000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00008000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00004000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00002000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00001000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000800
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000400
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000200
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000100
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000080
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000040
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000020
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000010
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000008
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000004
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000002
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000001
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000000
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000000
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: 0x000000c4 (0x00028513) mv      a0, t0
+core   0: 0x000000c4: md=MACH insn=0x00028513: x10:= 0x00000000
+core   0: 0x000000c8 (0x00030593) mv      a1, t1
+core   0: 0x000000c8: md=MACH insn=0x00030593: x11:= 0x00000000
+core   0: 0x000000cc (0x00c0006f) j       pc + 0xc
+core   0: 0x000000cc: md=MACH insn=0x00c0006f:
+core   0: >>>>  done
+core   0: 0x000000d8 (0x80051073) csrw    bareMetalOutputHex, a0
+Debug output: 0x0
+core   0: 0x000000d8: md=MACH insn=0x80051073:
+core   0: 0x000000dc (0x80059073) csrw    bareMetalOutputHex, a1
+Debug output: 0x0
+core   0: 0x000000dc: md=MACH insn=0x80059073:
+core   0: 0x000000e0 (0x01c12083) lw      ra, 28(sp)
+core   0: 0x000000e0: md=MACH insn=0x01c12083: x 1:= 0x00000140 == mem[0x0000ffd8]
+core   0: 0x000000e4 (0x01812403) lw      s0, 24(sp)
+core   0: 0x000000e4: md=MACH insn=0x01812403: x 8:= 0x00000000 == mem[0x0000ffd4]
+core   0: 0x000000e8 (0x02010113) addi    sp, sp, 32
+core   0: 0x000000e8: md=MACH insn=0x02010113: x 2:= 0x0000ffdc
+core   0: 0x000000ec (0x00008067) ret
+core   0: 0x000000ec: md=MACH insn=0x00008067:
+core   0: 0x00000140 (0x80051073) csrw    bareMetalOutputHex, a0
+Debug output: 0x0
+core   0: 0x00000140: md=MACH insn=0x80051073:
+core   0: 0x00000144 (0x80059073) csrw    bareMetalOutputHex, a1
+Debug output: 0x0
+core   0: 0x00000144: md=MACH insn=0x80059073:
+core   0: 0x00000148 (0x06400513) li      a0, 100
+core   0: 0x00000148: md=MACH insn=0x06400513: x10:= 0x00000064
+core   0: 0x0000014c (0x00000593) li      a1, 0
+core   0: 0x0000014c: md=MACH insn=0x00000593: x11:= 0x00000000
+core   0: 0x00000150 (0xf29ff0ef) jal     pc - 0xd8
+core   0: 0x00000150: md=MACH insn=0xf29ff0ef: x 1:= 0x00000154
+core   0: >>>>  div
+core   0: 0x00000078 (0xfe010113) addi    sp, sp, -32
+core   0: 0x00000078: md=MACH insn=0xfe010113: x 2:= 0x0000ffbc
+core   0: 0x0000007c (0x00112e23) sw      ra, 28(sp)
+core   0: 0x0000007c: md=MACH insn=0x00112e23: mem[0x0000ffd8]:= 0x00000154
+core   0: 0x00000080 (0x00812c23) sw      s0, 24(sp)
+core   0: 0x00000080: md=MACH insn=0x00812c23: mem[0x0000ffd4]:= 0x00000000
+core   0: 0x00000084 (0x04058663) beqz    a1, pc + 76
+core   0: 0x00000084: md=MACH insn=0x04058663:
+core   0: >>>>  div_by_zero
+core   0: 0x000000d0 (0x00000513) li      a0, 0
+core   0: 0x000000d0: md=MACH insn=0x00000513: x10:= 0x00000000
+core   0: 0x000000d4 (0x00000593) li      a1, 0
+core   0: 0x000000d4: md=MACH insn=0x00000593: x11:= 0x00000000
+core   0: >>>>  done
+core   0: 0x000000d8 (0x80051073) csrw    bareMetalOutputHex, a0
+Debug output: 0x0
+core   0: 0x000000d8: md=MACH insn=0x80051073:
+core   0: 0x000000dc (0x80059073) csrw    bareMetalOutputHex, a1
+Debug output: 0x0
+core   0: 0x000000dc: md=MACH insn=0x80059073:
+core   0: 0x000000e0 (0x01c12083) lw      ra, 28(sp)
+core   0: 0x000000e0: md=MACH insn=0x01c12083: x 1:= 0x00000154 == mem[0x0000ffd8]
+core   0: 0x000000e4 (0x01812403) lw      s0, 24(sp)
+core   0: 0x000000e4: md=MACH insn=0x01812403: x 8:= 0x00000000 == mem[0x0000ffd4]
+core   0: 0x000000e8 (0x02010113) addi    sp, sp, 32
+core   0: 0x000000e8: md=MACH insn=0x02010113: x 2:= 0x0000ffdc
+core   0: 0x000000ec (0x00008067) ret
+core   0: 0x000000ec: md=MACH insn=0x00008067:
+core   0: 0x00000154 (0x80051073) csrw    bareMetalOutputHex, a0
+Debug output: 0x0
+core   0: 0x00000154: md=MACH insn=0x80051073:
+core   0: 0x00000158 (0x80059073) csrw    bareMetalOutputHex, a1
+Debug output: 0x0
+core   0: 0x00000158: md=MACH insn=0x80059073:
+core   0: 0x0000015c (0xfff00513) li      a0, -1
+core   0: 0x0000015c: md=MACH insn=0xfff00513: x10:= 0xffffffff
+core   0: 0x00000160 (0x00200593) li      a1, 2
+core   0: 0x00000160: md=MACH insn=0x00200593: x11:= 0x00000002
+core   0: 0x00000164 (0xf15ff0ef) jal     pc - 0xec
+core   0: 0x00000164: md=MACH insn=0xf15ff0ef: x 1:= 0x00000168
+core   0: >>>>  div
+core   0: 0x00000078 (0xfe010113) addi    sp, sp, -32
+core   0: 0x00000078: md=MACH insn=0xfe010113: x 2:= 0x0000ffbc
+core   0: 0x0000007c (0x00112e23) sw      ra, 28(sp)
+core   0: 0x0000007c: md=MACH insn=0x00112e23: mem[0x0000ffd8]:= 0x00000168
+core   0: 0x00000080 (0x00812c23) sw      s0, 24(sp)
+core   0: 0x00000080: md=MACH insn=0x00812c23: mem[0x0000ffd4]:= 0x00000000
+core   0: 0x00000084 (0x04058663) beqz    a1, pc + 76
+core   0: 0x00000084: md=MACH insn=0x04058663:
+core   0: 0x00000088 (0x00000293) li      t0, 0
+core   0: 0x00000088: md=MACH insn=0x00000293: x 5:= 0x00000000
+core   0: 0x0000008c (0x00000313) li      t1, 0
+core   0: 0x0000008c: md=MACH insn=0x00000313: x 6:= 0x00000000
+core   0: 0x00000090 (0x00050393) mv      t2, a0
+core   0: 0x00000090: md=MACH insn=0x00050393: x 7:= 0xffffffff
+core   0: 0x00000094 (0x00100e13) li      t3, 1
+core   0: 0x00000094: md=MACH insn=0x00100e13: x28:= 0x00000001
+core   0: 0x00000098 (0x01fe1e13) slli    t3, t3, 31
+core   0: 0x00000098: md=MACH insn=0x01fe1e13: x28:= 0x80000000
+core   0: 0x0000009c (0x00058e93) mv      t4, a1
+core   0: 0x0000009c: md=MACH insn=0x00058e93: x29:= 0x00000002
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000000
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000001
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfffffffe
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x40000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfffffffc
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x40000000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x20000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfffffff8
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x60000000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x10000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfffffff0
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x70000000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x08000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xffffffe0
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x78000000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x04000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xffffffc0
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7c000000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x02000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xffffff80
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7e000000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x01000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xffffff00
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7f000000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00800000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfffffe00
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7f800000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00400000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfffffc00
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7fc00000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00200000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfffff800
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7fe00000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00100000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfffff000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7ff00000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00080000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xffffe000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7ff80000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00040000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xffffc000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7ffc0000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00020000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xffff8000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7ffe0000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00010000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xffff0000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7fff0000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00008000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfffe0000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7fff8000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00004000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfffc0000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7fffc000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00002000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfff80000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7fffe000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00001000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfff00000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7ffff000
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000800
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xffe00000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7ffff800
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000400
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xffc00000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7ffffc00
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000200
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xff800000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7ffffe00
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000100
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xff000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7fffff00
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000080
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfe000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7fffff80
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000040
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xfc000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7fffffc0
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000020
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xf8000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7fffffe0
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000010
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xf0000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7ffffff0
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000008
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xe0000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7ffffff8
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000004
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0xc0000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7ffffffc
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000002
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x80000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7ffffffe
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000001
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: >>>>  div_loop
+core   0: 0x000000a0 (0x01f3df13) srli    t5, t2, 31
+core   0: 0x000000a0: md=MACH insn=0x01f3df13: x30:= 0x00000001
+core   0: 0x000000a4 (0x00131313) slli    t1, t1, 1
+core   0: 0x000000a4: md=MACH insn=0x00131313: x 6:= 0x00000002
+core   0: 0x000000a8 (0x01e36333) or      t1, t1, t5
+core   0: 0x000000a8: md=MACH insn=0x01e36333: x 6:= 0x00000003
+core   0: 0x000000ac (0x00139393) slli    t2, t2, 1
+core   0: 0x000000ac: md=MACH insn=0x00139393: x 7:= 0x00000000
+core   0: 0x000000b0 (0x01d36663) bltu    t1, t4, pc + 12
+core   0: 0x000000b0: md=MACH insn=0x01d36663:
+core   0: 0x000000b4 (0x41d30333) sub     t1, t1, t4
+core   0: 0x000000b4: md=MACH insn=0x41d30333: x 6:= 0x00000001
+core   0: 0x000000b8 (0x01c2e2b3) or      t0, t0, t3
+core   0: 0x000000b8: md=MACH insn=0x01c2e2b3: x 5:= 0x7fffffff
+core   0: >>>>  no_sub
+core   0: 0x000000bc (0x001e5e13) srli    t3, t3, 1
+core   0: 0x000000bc: md=MACH insn=0x001e5e13: x28:= 0x00000000
+core   0: 0x000000c0 (0xfe0e10e3) bnez    t3, pc - 32
+core   0: 0x000000c0: md=MACH insn=0xfe0e10e3:
+core   0: 0x000000c4 (0x00028513) mv      a0, t0
+core   0: 0x000000c4: md=MACH insn=0x00028513: x10:= 0x7fffffff
+core   0: 0x000000c8 (0x00030593) mv      a1, t1
+core   0: 0x000000c8: md=MACH insn=0x00030593: x11:= 0x00000001
+core   0: 0x000000cc (0x00c0006f) j       pc + 0xc
+core   0: 0x000000cc: md=MACH insn=0x00c0006f:
+core   0: >>>>  done
+core   0: 0x000000d8 (0x80051073) csrw    bareMetalOutputHex, a0
+Debug output: 0x7fffffff
+core   0: 0x000000d8: md=MACH insn=0x80051073:
+core   0: 0x000000dc (0x80059073) csrw    bareMetalOutputHex, a1
+Debug output: 0x1
+core   0: 0x000000dc: md=MACH insn=0x80059073:
+core   0: 0x000000e0 (0x01c12083) lw      ra, 28(sp)
+core   0: 0x000000e0: md=MACH insn=0x01c12083: x 1:= 0x00000168 == mem[0x0000ffd8]
+core   0: 0x000000e4 (0x01812403) lw      s0, 24(sp)
+core   0: 0x000000e4: md=MACH insn=0x01812403: x 8:= 0x00000000 == mem[0x0000ffd4]
+core   0: 0x000000e8 (0x02010113) addi    sp, sp, 32
+core   0: 0x000000e8: md=MACH insn=0x02010113: x 2:= 0x0000ffdc
+core   0: 0x000000ec (0x00008067) ret
+core   0: 0x000000ec: md=MACH insn=0x00008067:
+core   0: 0x00000168 (0x80051073) csrw    bareMetalOutputHex, a0
+Debug output: 0x7fffffff
+core   0: 0x00000168: md=MACH insn=0x80051073:
+core   0: 0x0000016c (0x80059073) csrw    bareMetalOutputHex, a1
+Debug output: 0x1
+core   0: 0x0000016c: md=MACH insn=0x80059073:
+core   0: 0x00000170 (0x00000513) li      a0, 0
+core   0: 0x00000170: md=MACH insn=0x00000513: x10:= 0x00000000
+core   0: 0x00000174 (0x01c12083) lw      ra, 28(sp)
+core   0: 0x00000174: md=MACH insn=0x01c12083: x 1:= 0x00000018 == mem[0x0000fff8]
+core   0: 0x00000178 (0x02010113) addi    sp, sp, 32
+core   0: 0x00000178: md=MACH insn=0x02010113: x 2:= 0x0000fffc
+core   0: 0x0000017c (0x00008067) ret
+core   0: 0x0000017c: md=MACH insn=0x00008067:
+core   0: 0x00000018 (0x0480006f) j       pc + 0x48
+core   0: 0x00000018: md=MACH insn=0x0480006f:
+core   0: >>>>  _end
+core   0: 0x00000060 (0x00151293) slli    t0, a0, 1
+core   0: 0x00000060: md=MACH insn=0x00151293: x 5:= 0x00000000
+core   0: 0x00000064 (0x0012e293) ori     t0, t0, 1
+core   0: 0x00000064: md=MACH insn=0x0012e293: x 5:= 0x00000001
+core   0: 0x00000068 (0x00001317) auipc   t1, 0x1
+core   0: 0x00000068: md=MACH insn=0x00001317: x 6:= 0x00001068
+core   0: 0x0000006c (0xf9830313) addi    t1, t1, -104
+core   0: 0x0000006c: md=MACH insn=0xf9830313: x 6:= 0x00001000
+core   0: 0x00000070 (0x00532023) sw      t0, 0(t1)
+core   0: 0x00000070: md=MACH insn=0x00532023: mem[0x00001000]:= 0x00000001
+core   0: >>>>  loop
+core   0: 0x00000074 (0x0000006f) j       pc + 0x0
+core   0: 0x00000074: md=MACH insn=0x0000006f:
